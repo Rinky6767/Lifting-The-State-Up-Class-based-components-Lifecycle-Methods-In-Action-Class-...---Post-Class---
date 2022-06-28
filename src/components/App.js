@@ -4,9 +4,9 @@ import "./../styles/App.css";
 let list = [];
 function App() {
 	const [id, setId] = useState(0);
-	const [input, setInput] = useState();
+	const [input, setInput] = useState("");
 	const [isEditing, setEditing] = useState(NaN);
-	const [newinput, setNewInput] = useState();
+	const [newinput, setNewInput] = useState("");
 	const [task, setTask] = useState(list);
 
 	function Form() {
@@ -23,7 +23,7 @@ function App() {
 					/>
 					<button id="btn" onClick={(event) => {
                                             event.preventDefault();
-                                               if(input!==undefined && input!==null){
+                                               if(input.length>0){
 						setId(id + 1);
 						let newtask = {
 							name: input,
@@ -55,7 +55,7 @@ function App() {
 									/>
 									<button className="saveTask"
 										onClick={() => {
-											if ( newinput!==undefined && newinput!==null) {
+											if ( newinput.length>0) {
 												let modarr = task.map((val) => {
 													if (val.id === isEditing) {
 														val.name = newinput;
