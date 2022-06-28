@@ -13,7 +13,8 @@ function App() {
 		return (
 			<>
 				<form
-					onSubmit={() => {
+					onSubmit={(event) => {
+                                            event.preventDefault();
 						setId(id + 1);
 						let newtask = {
 							name: input,
