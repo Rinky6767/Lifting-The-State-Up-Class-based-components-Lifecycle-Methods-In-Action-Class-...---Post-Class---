@@ -4,7 +4,7 @@ import "./../styles/App.css";
 let list = [];
 function App() {
 	const [id, setId] = useState(0);
-	const [input, setInput] = useState("");
+	const [input, setInput] = useState();
 	const [isEditing, setEditing] = useState(NaN);
 	const [newinput, setNewInput] = useState("");
 	const [task, setTask] = useState(list);
@@ -23,6 +23,7 @@ function App() {
 					/>
 					<button id="btn" onClick={(event) => {
                                             event.preventDefault();
+                                               if(input!==undefined && input!==null){
 						setId(id + 1);
 						let newtask = {
 							name: input,
@@ -30,7 +31,7 @@ function App() {
 						};
 						let newarr = [...task, newtask];
 						setTask(newarr);
-						setInput("");
+						setInput("");}
 					}
                                   }>ADD</button>
 				</form>{" "}
