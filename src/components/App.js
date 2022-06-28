@@ -6,7 +6,7 @@ function App() {
 	const [id, setId] = useState(0);
 	const [input, setInput] = useState();
 	const [isEditing, setEditing] = useState(NaN);
-	const [newinput, setNewInput] = useState("");
+	const [newinput, setNewInput] = useState();
 	const [task, setTask] = useState(list);
 
 	function Form() {
@@ -55,7 +55,7 @@ function App() {
 									/>
 									<button className="saveTask"
 										onClick={() => {
-											if (newinput.length > 0) {
+											if ( newinput!==undefined && newinput!==null) {
 												let modarr = task.map((val) => {
 													if (val.id === isEditing) {
 														val.name = newinput;
@@ -64,7 +64,7 @@ function App() {
 												});
 												setEditing(NaN);
 												setTask(modarr);
-												setNewInput("");
+												setNewInput();
 											}
 										}}
 									>
