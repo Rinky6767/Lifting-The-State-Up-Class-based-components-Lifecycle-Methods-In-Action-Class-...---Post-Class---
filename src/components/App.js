@@ -12,8 +12,16 @@ function App() {
 	function Form() {
 		return (
 			<>
-				<form
-					onSubmit={(event) => {
+				<form>
+					<input required
+						type="text"
+						id="task"
+						value={input}
+						onChange={(event) => {
+							setInput(event.target.value);
+						}}
+					/>
+					<button id="btn" onClick={(event) => {
                                             event.preventDefault();
 						setId(id + 1);
 						let newtask = {
@@ -23,17 +31,8 @@ function App() {
 						let newarr = [...task, newtask];
 						setTask(newarr);
 						setInput("");
-					}}
-				>
-					<input required
-						type="text"
-						id="task"
-						value={input}
-						onChange={(event) => {
-							setInput(event.target.value);
-						}}
-					/>
-					<button id="btn">ADD</button>
+					}
+                                  }>ADD</button>
 				</form>{" "}
 			</>
 		);
